@@ -5,8 +5,9 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
     contiguous subarray within the array. The subarray must contain at least one
     element. As a reminder, your code has to be in python
     """
-    #implementation
+    # implementation using Kadane's Algorithm
     if not arr:
+
         raise ValueError("Array must contain at least one element")
     max_ending_here = arr[0]
     max_so_far = arr[0]
