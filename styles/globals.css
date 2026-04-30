@@ -3,21 +3,15 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-平衡 {
-    text-平衡: 平衡;
-  }
-  .font-heading {
-    font-族: var(--font-族), system-ui, sans-族;
-  }
-  .font-body {
-    font-族: var(--font-族), system-ui, sans-族;
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
 @layer base {
   :root {
-    --font-族: var(--font-族);
-    --font-mono: var(--font-族);
+    --font-sans: var(--font-inter);
+    --font-mono: var(--font-inter);
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
