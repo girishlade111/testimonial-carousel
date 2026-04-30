@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, CSSProperties } from "react"
+import { useRef } from "react"
 import TestimonialCard from "./testimonial-card"
 
 const testimonials = [
@@ -49,35 +49,24 @@ const testimonials = [
 export default function TestimonialCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  const scrollKeyframes: Keyframe[] = [
-    { transform: 'translateX(0)' },
-    { transform: 'translateX(calc(-380px * 4 - 16px * 4))' }
-  ]
-
-  const scrollStyle: CSSProperties = {
-    width: 'fit-content',
-    animation: 'scroll 20s linear infinite',
-  }
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
 
   return (
     <div className="relative w-full h-[400px] overflow-hidden">
       <style jsx>{`
         @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-380px * 4 - 16px * 4)); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-380px * 4 - 16px * 4));
+          }
         }
       `}</style>
-
-  // Create a continuous array by duplicating testimonials
-  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
-
-  return (
-    <div className="relative w-full h-[400px] overflow-hidden">
-      {/* Gradient overlays */}
+      
       <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/60 via-black/20 to-transparent pointer-events-none z-30" />
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none z-20" />
 
-      {/* Scrolling container */}
       <div 
         ref={scrollRef}
         className="flex gap-4"
@@ -93,7 +82,6 @@ export default function TestimonialCarousel() {
         ))}
       </div>
 
-      {/* Side gradients */}
       <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
       <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
     </div>
