@@ -1,4 +1,4 @@
-# Testimonial Carousel 
+# Testimonial Carousel
 
 *A Modern, Responsive Testimonial Carousel Component Built with Next.js and Tailwind CSS*
 
