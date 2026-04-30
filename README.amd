@@ -280,14 +280,3 @@ className="relative w-full h-[400px] overflow-hidden"
 
 // Change to custom height
 className="relative w-full h-[300px] overflow-hidden"
-```
-
----
-
-## Browser Support
-
-- **Chrome** (latest)
-- **Firefox** (latest)
-- **Safari** (latest)
-- **Edge** (latest)
-
