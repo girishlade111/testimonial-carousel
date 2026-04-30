@@ -76,18 +76,6 @@ export default function TestimonialCarousel() {
       {/* Side gradients */}
       <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-20" />
       <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-20" />
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            /* Move by exactly 1/3 of total width (4 cards × 380px + 4 gaps × 16px) */
-            transform: translateX(calc(-380px * 4 - 16px * 4));
-          }
-        }
-      `}</style>
     </div>
   )
 }
