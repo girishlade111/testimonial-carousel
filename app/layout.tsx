@@ -17,7 +17,7 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Testimonial Carousel | Enterprise Grade',
+  title: 'TrustFlow | Enterprise-Grade Social Proof',
   description: 'A professional, enterprise-grade testimonial carousel component with stunning animations and modern UI',
   keywords: ['testimonial', 'carousel', 'enterprise', 'Next.js', 'React', 'UI component'],
 }
@@ -29,14 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <style>{`
-html {
-  font-family: var(--font-inter), system-ui, sans-serif;
-}
-        `}</style>
-      </head>
-      <body className={`${inter.variable} ${jakarta.variable}`}>
+      <body className={`${inter.variable} ${jakarta.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

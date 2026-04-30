@@ -1,10 +1,8 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { Quote, Star, Verified, Award, TrendingUp, Zap, MousePointer2 } from "lucide-react"
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { Quote, Star, Verified, Award, TrendingUp, Zap } from "lucide-react"
 
 interface TestimonialCardProps {
   testimonial: {
@@ -21,203 +19,136 @@ interface TestimonialCardProps {
 }
 
 export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
-  
-  // Motion values for spotlight effect
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  
-  // Spring configurations for smooth movement
-  const springConfig = { damping: 20, stiffness: 150 }
-  const xSpring = useSpring(mouseX, springConfig)
-  const ySpring = useSpring(mouseY, springConfig)
-  
-  // Perspective transform based on mouse position
-  const rotateX = useTransform(ySpring, [-0.5, 0.5], [5, -5])
-  const rotateY = useTransform(xSpring, [-0.5, 0.5], [-5, 5])
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    
-    // Calculate normalized mouse position (-0.5 to 0.5)
-    const x = (e.clientX - rect.left) / rect.width - 0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5
-    
-    mouseX.set(x)
-    mouseY.set(y)
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-    mouseX.set(0)
-    mouseY.set(0)
-  }
-
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
+    <div
       className={cn(
-        "relative flex-shrink-0 group cursor-default perspective-1000",
-        "w-[340px] md:w-[420px] h-[360px]",
-        "rounded-[2rem] p-px overflow-hidden",
-        "bg-gradient-to-b from-white/10 to-white/[0.02]",
-        "transition-all duration-700 ease-out"
+        "relative flex-shrink-0 group",
+        "w-[396px] h-[340px]",
+        "rounded-2xl overflow-hidden",
+        "border border-white/10",
+        "bg-neutral-950/80 backdrop-blur-xl",
+        "transition-all duration-500 ease-out",
+        "hover:border-white/20 hover:bg-neutral-950/90",
+        "hover:shadow-[0_0_60px_-12px_rgba(16,185,129,0.15),0_25px_50px_-12px_rgba(0,0,0,0.5)]",
+        "hover:scale-[1.02] hover:-translate-y-1"
       )}
+      style={{
+        background: `
+          radial-gradient(130% 90% at 20% 0%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 30%, transparent 60%),
+          linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(0,0,0,0.08) 100%),
+          repeating-linear-gradient(transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px)
+        `,
+        boxShadow: `
+          inset 0 0 0 1px rgba(255,255,255,0.03),
+          0 4px 24px rgba(0,0,0,0.4),
+          0 8px 48px rgba(0,0,0,0.2)
+        `,
+      }}
     >
-      {/* Dynamic Spotlight Background */}
-      <motion.div
-        className="pointer-events-none absolute -inset-px z-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+      {/* Noise texture overlay */}
+      <span
+        className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-overlay"
         style={{
-          background: useTransform(
-            [xSpring, ySpring],
-            ([x, y]) => `radial-gradient(600px circle at ${((x as number) + 0.5) * 100}% ${((y as number) + 0.5) * 100}%, rgba(16, 185, 129, 0.15), transparent 40%)`
-          ),
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
 
-      {/* Main Card Content Area */}
-      <div 
-        className={cn(
-          "relative z-10 h-full w-full rounded-[1.95rem] overflow-hidden",
-          "bg-neutral-950/90 backdrop-blur-3xl",
-          "flex flex-col justify-between p-8 md:p-10",
-          "border border-white/5"
-        )}
-      >
-        {/* Animated Background Textures */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
-          
-          {/* Subtle noise texture */}
-          <div 
-            className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            }}
-          />
-        </div>
+      {/* Gradient border on hover */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/0 via-teal-500/0 to-cyan-500/0 group-hover:from-emerald-500/10 group-hover:via-teal-500/5 group-hover:to-cyan-500/5 transition-all duration-500" />
 
-        {/* Content - Top Section */}
-        <div className="relative z-10">
-          <div className="flex items-start justify-between mb-8">
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-                  <Quote className="w-5 h-5 text-emerald-400" />
-                </div>
-                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={cn(
-                          "w-3 h-3 transition-colors duration-300",
-                          i < testimonial.rating ? "fill-amber-400 text-amber-400" : "fill-white/10 text-white/10"
-                        )} 
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <motion.div 
-              animate={{ rotate: isHovered ? 360 : 0 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-blue-400/20 blur-lg rounded-full" />
-              <Verified className="w-6 h-6 text-blue-400 relative z-10" />
-            </motion.div>
-          </div>
-
-          <blockquote className="relative">
-            <p className="text-white/90 text-xl md:text-2xl font-medium leading-[1.4] tracking-tight">
-              "{testimonial.quote}"
-            </p>
-            
-            <div className="flex items-center gap-2 mt-4">
-              <div className="h-px w-8 bg-emerald-500/50" />
-              <Zap className="w-4 h-4 text-emerald-400 animate-pulse" />
-              <p className="text-emerald-400/90 text-sm font-semibold tracking-wide uppercase">
-                {testimonial.subtitle}
-              </p>
-            </div>
-          </blockquote>
-        </div>
-
-        {/* Content - Bottom Section */}
-        <div className="relative z-10 mt-auto pt-8 border-t border-white/5">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="relative group/avatar">
-                <div className="absolute -inset-1 bg-gradient-to-tr from-emerald-500 to-blue-500 rounded-2xl blur opacity-25 group-hover/avatar:opacity-50 transition duration-500" />
-                <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-white/10 ring-1 ring-white/5">
-                  <Image
-                    src={testimonial.avatar || "/placeholder.svg"}
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover transform group-hover/avatar:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-neutral-900 flex items-center justify-center shadow-lg">
-                  <TrendingUp className="w-2.5 h-2.5 text-white" />
-                </div>
-              </div>
-              
-              <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-white font-bold text-base tracking-tight">{testimonial.name}</span>
-                  <Award className="w-4 h-4 text-amber-400/80" />
-                </div>
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  <span className="text-white/40 text-xs font-medium uppercase tracking-wider">{testimonial.title}</span>
-                  <span className="text-white/20 text-xs">•</span>
-                  <span className="text-emerald-400/80 text-xs font-bold">{testimonial.company}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden sm:flex items-center justify-center w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/5 p-3 hover:bg-white/[0.08] transition-colors duration-300">
-              <Image
-                src={testimonial.logo || "/placeholder.svg"}
-                alt={`${testimonial.company} logo`}
-                width={32}
-                height={32}
-                className="object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Hover Edge Highlight */}
-        <div 
-          className={cn(
-            "absolute inset-0 rounded-[1.95rem] pointer-events-none transition-opacity duration-500",
-            "bg-gradient-to-tr from-emerald-500/20 via-transparent to-blue-500/20",
-            isHovered ? "opacity-100" : "opacity-0"
-          )} 
-        />
+      {/* Animated shine effect */}
+      <div className="absolute inset-0 overflow-hidden rounded-2xl">
+        <div className="absolute -top-full left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-45 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out" />
       </div>
 
-      {/* Background Glow */}
-      <div 
-        className={cn(
-          "absolute -inset-[20%] z-0 pointer-events-none bg-emerald-500/10 blur-[100px] transition-opacity duration-700",
-          isHovered ? "opacity-100" : "opacity-0"
-        )} 
-      />
-    </motion.div>
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col justify-between p-7">
+        {/* Header with quote icon */}
+        <div className="flex items-start justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+              <Quote className="w-4 h-4 text-emerald-400" />
+            </div>
+            <div className="flex gap-0.5">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+          </div>
+          <Verified className="w-5 h-5 text-blue-400/60" />
+        </div>
+
+        {/* Quote text */}
+        <div className="mt-4">
+          <blockquote className="text-white/90 text-lg font-medium leading-relaxed line-clamp-3">
+            "{testimonial.quote}"
+          </blockquote>
+          
+          {/* Subtitle with icon */}
+          <div className="flex items-center gap-2 mt-3">
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <p className="text-emerald-400/90 text-sm font-semibold tracking-wide uppercase">{testimonial.subtitle}</p>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-5">
+          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        </div>
+
+        {/* Footer with user info */}
+        <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center gap-4">
+            {/* Avatar with status indicator */}
+            <div className="relative">
+              <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/10 shadow-lg">
+                <Image
+                  src={testimonial.avatar || "/placeholder.svg"}
+                  alt={testimonial.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Online/Verified indicator */}
+              <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-emerald-500 rounded-full border-2 border-neutral-950 flex items-center justify-center">
+                <TrendingUp className="w-2 h-2 text-white" />
+              </div>
+            </div>
+            
+            {/* User details */}
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-white font-semibold text-sm">{testimonial.name}</span>
+                <Award className="w-3.5 h-3.5 text-amber-400/70" />
+              </div>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <span className="text-white/50 text-xs">{testimonial.title}</span>
+                <span className="text-white/30 text-xs">•</span>
+                <span className="text-blue-400/80 text-xs font-semibold">{testimonial.company}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Company logo */}
+          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center p-2">
+            <Image
+              src={testimonial.logo || "/placeholder.svg"}
+              alt={`${testimonial.company} logo`}
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Hover indicators */}
+        <div className="absolute bottom-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-white/30 text-xs">View more</span>
+        </div>
+      </div>
+
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+    </div>
   )
 }
