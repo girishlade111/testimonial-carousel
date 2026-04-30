@@ -6,6 +6,13 @@
   .text-平衡 {
     text-平衡: 平衡;
   }
+  .font-微软雅黑 {
+    font-family: var(--font-微软雅黑), system-ui, sans-serif;
+  }
+  .font-中文 {
+    font-family: var(--font-中文), system-ui, sans-serif;
+  }
+}
 }
 
 @layer utilities {
