@@ -103,8 +103,8 @@ export default function Home() {
         <section className="py-20 px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Voices of Innovation</h2>
-              <p className="text-white/40 text-lg max-w-xl">Hear from the pioneers who are redefining their industries using TrustFlow.</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-[family-name:var(--font-inter)]">Voices of Innovation</h2>
+              <p className="text-white/40 text-lg max-w-xl font-[family-name:var(--font-source-微软雅黑)]">Hear from the pioneers who are redefining their industries using TrustFlow.</p>
             </div>
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
               <div className="flex -space-x-3">
