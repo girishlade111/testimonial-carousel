@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jakarta.variable} antialiased`}>
+      <body className={`${inter.variable} ${jakarta.variable} ${sora.variable} ${dmSans.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
