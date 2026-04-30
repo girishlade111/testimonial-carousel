@@ -1,18 +1,21 @@
 "use client"
 
-import { useRef, useState } from "react"
-import Image from "next/image"
-import { Quote, Star, ArrowRight, Building2, User, Sparkles } from "lucide-react"
+import * as React from "react"
+import { useCallback, useEffect, useState, useRef } from "react"
+import useEmblaCarousel from "embla-carousel-react"
+import AutoPlay from "embla-carousel-autoplay"
+import { ChevronLeft, ChevronRight, Sparkles, Pause, Play } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 import TestimonialCard from "./testimonial-card"
 import { cn } from "@/lib/utils"
 
 const testimonials = [
   {
     id: 1,
-    quote: "Your product is awesome for X, Y, Z reasons. Would highly recommend!",
-    subtitle: "Unparalleled in speed and reliability",
+    quote: "Our productivity increased by 40% in the first quarter of implementation. Truly revolutionary.",
+    subtitle: "Enterprise Efficiency",
     name: "John Smith",
-    title: "Co-Founder & CTO",
+    title: "CTO",
     company: "Microsoft",
     avatar: "/professional-bearded-man.png",
     logo: "/health-tech-logo.png",
@@ -20,10 +23,10 @@ const testimonials = [
   },
   {
     id: 2,
-    quote: "We struggled a lot with X and Y! Not a problem anymore after switching",
-    subtitle: "Great customer support",
+    quote: "The seamless integration with our existing stack was what impressed us most. Highly recommend.",
+    subtitle: "Seamless Integration",
     name: "Caroline Reaper",
-    title: "Co-Founder",
+    title: "Head of Infrastructure",
     company: "Google",
     avatar: "/young-tech-founder.png",
     logo: "/placeholder-xsd8p.png",
@@ -31,10 +34,10 @@ const testimonials = [
   },
   {
     id: 3,
-    quote: "Finally a great service that don't require constant maintenance",
-    subtitle: "Zero Maintenance",
+    quote: "Finally a solution that scales with our growth without increasing operational complexity.",
+    subtitle: "Scalable Infrastructure",
     name: "Jake Kang",
-    title: "Co-Founder & CTO",
+    title: "VP of Engineering",
     company: "Amazon",
     avatar: "/tech-executive-glasses.png",
     logo: "/modern-software-logo.png",
@@ -42,10 +45,10 @@ const testimonials = [
   },
   {
     id: 4,
-    quote: "The reliability is unmatched. We've had zero downtime since switching over.",
-    subtitle: "Enterprise-grade stability",
+    quote: "The reliability is unmatched. We've had zero downtime since switching over to this platform.",
+    subtitle: "Zero Downtime",
     name: "Sarah Johnson",
-    title: "CTO",
+    title: "SVP Technology",
     company: "Vercel",
     avatar: "/professional-woman-short-hair.png",
     logo: "/enterprise-software-logo.png",
@@ -53,10 +56,10 @@ const testimonials = [
   },
   {
     id: 5,
-    quote: "Transformed our workflow completely. The ROI has been incredible.",
-    subtitle: "Game-changing solution",
+    quote: "Transformed our workflow completely. The ROI has been incredible for our entire organization.",
+    subtitle: "Maximum ROI",
     name: "Michael Chen",
-    title: "VP of Engineering",
+    title: "Director of Product",
     company: "Stripe",
     avatar: "/professional-woman-short-hair.png",
     logo: "/data-analytics-logo.png",
@@ -64,8 +67,8 @@ const testimonials = [
   },
   {
     id: 6,
-    quote: "Best-in-class security and compliance features gave us peace of mind.",
-    subtitle: "Enterprise Security",
+    quote: "Best-in-class security and compliance features gave our legal team complete peace of mind.",
+    subtitle: "Bank-Grade Security",
     name: "Emily Davis",
     title: "CISO",
     company: "Salesforce",
@@ -76,85 +79,174 @@ const testimonials = [
 ]
 
 export default function TestimonialCarousel() {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [isPaused, setIsPaused] = useState(false)
-  
-  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true, 
+      align: "center",
+      skipSnaps: false,
+    },
+    [AutoPlay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
+  )
+
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [progress, setProgress] = useState(0)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
+  const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi])
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+    setPrevBtnEnabled(emblaApi.canScrollPrev())
+    setNextBtnEnabled(emblaApi.canScrollNext())
+    setProgress(0) // Reset progress on manual change
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    onSelect()
+    setScrollSnaps(emblaApi.scrollSnapList())
+    emblaApi.on("select", onSelect)
+    emblaApi.on("reInit", onSelect)
+  }, [emblaApi, setScrollSnaps, onSelect])
+
+  // Progress bar animation
+  useEffect(() => {
+    if (!isPlaying) {
+      if (timerRef.current) clearInterval(timerRef.current)
+      return
+    }
+
+    const interval = 50 // Update every 50ms
+    const totalDelay = 5000
+    const step = (interval / totalDelay) * 100
+
+    timerRef.current = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 0
+        return prev + step
+      })
+    }, interval)
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
+  }, [isPlaying, selectedIndex])
+
+  const toggleAutoPlay = useCallback(() => {
+    const autoplay = emblaApi?.plugins()?.autoplay
+    if (!autoplay) return
+
+    if (autoplay.isPlaying()) {
+      autoplay.stop()
+      setIsPlaying(false)
+    } else {
+      autoplay.play()
+      setIsPlaying(true)
+    }
+  }, [emblaApi])
 
   return (
-    <div className="relative w-full h-[480px] overflow-hidden rounded-3xl">
-      {/* Ambient background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.08),_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(59,130,246,0.06),_transparent_50%)]" />
-      
-      {/* Grid pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      />
+    <div className="relative w-full group/carousel">
+      {/* Background Ambient Glows */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-500/10 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Top gradient overlay */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-neutral-950 via-neutral-950/80 to-transparent pointer-events-none z-30" />
-      
-      {/* Bottom gradient overlay */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent pointer-events-none z-20" />
+      {/* Main Container */}
+      <div className="overflow-hidden px-4 md:px-0" ref={emblaRef}>
+        <div className="flex -ml-4 md:-ml-8">
+          {testimonials.map((testimonial) => (
+            <div 
+              key={testimonial.id} 
+              className="flex-[0_0_100%] min-w-0 pl-4 md:pl-8 md:flex-[0_0_auto]"
+            >
+              <TestimonialCard testimonial={testimonial} />
+            </div>
+          ))}
+        </div>
+      </div>
 
-      {/* Left gradient overlay */}
-      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-neutral-950 via-neutral-950/60 to-transparent pointer-events-none z-25" />
-      
-      {/* Right gradient overlay */}
-      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-neutral-950 via-neutral-950/60 to-transparent pointer-events-none z-25" />
+      {/* Controls Overlay */}
+      <div className="mt-12 flex flex-col items-center gap-8">
+        {/* Navigation Dots */}
+        <div className="flex items-center gap-3">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={cn(
+                "relative h-1.5 transition-all duration-500 rounded-full overflow-hidden",
+                index === selectedIndex ? "w-12 bg-white/20" : "w-1.5 bg-white/10 hover:bg-white/20"
+              )}
+            >
+              {index === selectedIndex && (
+                <motion.div 
+                  initial={{ width: "0%" }}
+                  animate={{ width: `${progress}%` }}
+                  className="absolute inset-0 bg-emerald-500"
+                />
+              )}
+            </button>
+          ))}
+        </div>
 
-      {/* Scrolling container */}
-      <div 
-        ref={scrollRef}
-        className={cn(
-          "flex gap-6 items-stretch",
-          isPaused && "animation-paused"
-        )}
-        style={{
-          animation: 'scroll 30s linear infinite',
-          width: 'fit-content'
-        }}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        {duplicatedTestimonials.map((testimonial, index) => (
-          <div key={`${testimonial.id}-${index}`} className="flex-shrink-0">
-            <TestimonialCard testimonial={testimonial} />
+        {/* Bottom Bar: Prev/Next + Progress Info */}
+        <div className="flex items-center justify-between w-full max-w-2xl px-6 py-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-xl">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={scrollPrev}
+              className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group/btn"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-5 h-5 text-white/60 group-hover/btn:text-white transition-colors" />
+            </button>
+            <div className="h-8 w-px bg-white/10" />
+            <button
+              onClick={scrollNext}
+              className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group/btn"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-5 h-5 text-white/60 group-hover/btn:text-white transition-colors" />
+            </button>
           </div>
-        ))}
+
+          <div className="hidden sm:flex items-center gap-4 px-6 py-2 rounded-xl bg-white/5 border border-white/5">
+            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <span className="text-sm font-medium text-white/60">
+              <span className="text-white font-bold">{String(selectedIndex + 1).padStart(2, '0')}</span>
+              <span className="mx-2">/</span>
+              <span>{String(scrollSnaps.length).padStart(2, '0')}</span>
+            </span>
+          </div>
+
+          <button
+            onClick={toggleAutoPlay}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 transition-all duration-300"
+          >
+            {isPlaying ? (
+              <>
+                <Pause className="w-4 h-4" />
+                <span className="text-xs font-bold uppercase tracking-widest">Pause</span>
+              </>
+            ) : (
+              <>
+                <Play className="w-4 h-4" />
+                <span className="text-xs font-bold uppercase tracking-widest">Auto</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* Decorative corner elements */}
-      <div className="absolute top-4 left-4 w-16 h-16 border-l border-t border-white/10 rounded-tl-xl pointer-events-none z-20" />
-      <div className="absolute top-4 right-4 w-16 h-16 border-r border-t border-white/10 rounded-tr-xl pointer-events-none z-20" />
-      <div className="absolute bottom-4 left-4 w-16 h-16 border-l border-b border-white/10 rounded-bl-xl pointer-events-none z-20" />
-      <div className="absolute bottom-4 right-4 w-16 h-16 border-r border-b border-white/10 rounded-br-xl pointer-events-none z-20" />
-
-      {/* Animated sparkle effect */}
-      <div className="absolute top-6 right-8 pointer-events-none z-20">
-        <Sparkles className="w-4 h-4 text-amber-400/60 animate-pulse" />
-      </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-396px * 6 - 24px * 6));
-          }
-        }
-        .animation-paused {
-          animation-play-state: paused;
-        }
-      `}</style>
+      {/* Perspective Overlay Gradients (Desktop) */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-neutral-950 to-transparent pointer-events-none z-10 hidden md:block" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none z-10 hidden md:block" />
     </div>
   )
 }
