@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import TestimonialCard from "./testimonial-card"
 
 const testimonials = [
@@ -49,31 +49,45 @@ const testimonials = [
 export default function TestimonialCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    const element = scrollRef.current
+    if (!element) return
+
+    function animate() {
+      const scrollWidth = element.scrollWidth
+      const clientWidth = element.clientWidth
+      
+      if (scrollWidth > clientWidth) {
+        element.style.transform = `translateX(-${scrollWidth / 3}px)`
+      }
+    }
+
+    const animation = element.animate(
+      [
+        { transform: 'translateX(0)' },
+        { transform: `translateX(-${element.scrollWidth / 3}px)` }
+      ],
+      {
+        duration: 20000,
+        iterations: Infinity,
+        easing: 'linear'
+      }
+    )
+
+    return () => animation.cancel()
+  }, [])
+
   const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
 
   return (
     <div className="relative w-full h-[400px] overflow-hidden">
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-380px * 4 - 16px * 4));
-          }
-        }
-      `}</style>
-      
       <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/60 via-black/20 to-transparent pointer-events-none z-30" />
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none z-20" />
 
       <div 
         ref={scrollRef}
         className="flex gap-4"
-        style={{
-          width: 'fit-content',
-          animation: 'scroll 20s linear infinite',
-        }}
+        style={{ width: 'fit-content' }}
       >
         {duplicatedTestimonials.map((testimonial, index) => (
           <div key={`${testimonial.id}-${index}`} style={{ flexShrink: 0 }}>
