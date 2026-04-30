@@ -28,24 +28,7 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 
 ```mermaid
 flowchart TB
-    subgraph Client["🖥️ Client Side (Browser)"]
-        direction TB
-        
-    end
-    
-    subgraph NextJS["🚀 Next.js Framework"]
-        AppRouter["App Router"]
-        Server["Server Components"]
-        Pages["Pages<br/>[page.tsx]"]
-    end
-    
-    subgraph Styling["🎨 Styling Layer"]
-        Tailwind["Tailwind CSS"]
-        Utils["lib/utils.ts<br/>[cn utility]"]
-        Config["tailwind.config.ts"]
-    end
-    
-    subgraph Theme["🌓 Theme System"]
+    subgra
         ThemeProvider["next-themes<br/>Provider"]
         DarkMode["Dark Mode<br/>Support"]
     end
