@@ -1,10 +1,10 @@
-import TestimonialCarousel from "@/components/testimonial-carousel"
-import { Shield, Zap, Globe, Award, CheckCircle2, ArrowRight, Star, ExternalLink, Play } from "lucide-react"
+import TestimonialCarousel from "@/components/testimonial- carousel"
+import { Shield, Zap, Globe, Award, CheckCircle2, ArrowRight, Star, ExternalLink, Play } from "lucide-rea ct"
 import { cn } from "@/lib/utils"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-950 relative overflow-x-hidden selection:bg-emerald-500/30">
+    <main className="min-h-screen bg- neutral-950 relative overflow-x-hidden selection:bg-emerald-500/30">
       {/* Dynamic Background System */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,_rgba(16,185,129,0.1),_transparent_80%)]" />
@@ -24,9 +24,9 @@ export default function Home() {
 
       <div className="relative z-10">
         {/* Navigation / Header */}
-        <header className="w-full px-6 py-8 flex items-center justify-between max-w-7xl mx-auto">
+        <header className="w-full px-6 py-8 flex items- center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-blue-500 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient- to-tr from-emerald-500 to-blue-500 flex items-center justify-center">
               <Zap className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold text-white tracking-tight">TrustFlow<span className="text-emerald-500">.</span></span>
@@ -52,18 +52,18 @@ export default function Home() {
             
             <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-[-0.02em] leading-[1.05] font-[family-name:var(--font-inter)]">
               Social Proof That <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-500">Drives Growth</span>
+              <span className="text-transparent bg-clip-text bg- gradient-to-r from-emerald-400 via-teal-400 to-blue-500">Drives Growth</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto mb-12 leading-relaxed font-[family-name:var(--font-source-sans)]">
+            <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto mb-12 leading- relaxed font-[family-name:var(--font-source- sans)]">
               We empower industry leaders to build trust and accelerate conversions with our 
               state-of-the-art testimonial infrastructure.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify- center gap-4">
               <button className="group relative px-8 py-4 rounded-2xl bg-white text-black font-bold flex items-center gap-3 overflow-hidden transition-transform hover:scale-105">
                 <span className="relative z-10">Start Your Free Trial</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group- hover:translate-x-1 transition-transform" />
               </button>
               <button className="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold flex items-center gap-3 hover:bg-white/10 transition-colors">
                 <Play className="w-4 h-4 fill-white" />
@@ -84,11 +84,11 @@ export default function Home() {
             ].map((stat, index) => (
               <div 
                 key={index}
-                className="group p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl hover:bg-white/[0.05] transition-all duration-500"
+                className="group p-8 rounded-[2.5rem] bg- white/[0.02] border border-white/5 backdrop- blur-3xl hover:bg-white/[0.05] transition-all duration-500"
               >
                 <div className={cn(
                   "w-12 h-12 rounded-2xl mb-6 flex items-center justify-center",
-                  "bg-white/5 border border-white/10 transition-transform group-hover:scale-110"
+                  "bg-white/5 border border-white/10 transition-transform group- hover:scale-110"
                 )}>
                   <stat.icon className="w-6 h-6 text-white/70" />
                 </div>
@@ -101,15 +101,15 @@ export default function Home() {
 
         {/* Carousel Section */}
         <section className="py-20 px-6 overflow-hidden">
-          <div className="max-w-7xl mx-auto mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-7xl mx-auto mb-16 text- center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight font-[family-name:var(--font-inter)]">Voices of Innovation</h2>
-              <p className="text-white/40 text-lg max-w-xl font-[family-name:var(--font-source-微软雅黑)]">Hear from the pioneers who are redefining their industries using TrustFlow.</p>
+              <p className="text-white/40 text-lg max-w-xl font-[family- name:var(--font-source-sans)]">Hear from the pioneers who are redefining their industries using TrustFlow.</p>
             </div>
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-neutral-950 bg-neutral-800" />
+                  <div key={i} className="w-10 h-10 rounded- full border-2 border-neutral-950 bg-neutral-800" />
                 ))}
               </div>
               <div className="flex flex-col">
@@ -134,7 +134,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
               {['Microsoft', 'Google', 'Amazon', 'Vercel', 'Stripe', 'Salesforce'].map((logo) => (
                 <div key={logo} className="h-8 w-32 relative">
-                  <div className="flex items-center justify-center h-full text-white font-bold text-xl tracking-tighter italic opacity-60 hover:opacity-100 transition-opacity cursor-default">
+                  <div className="flex items-center justify- center h-full text-white font-bold text-xl tracking-tighter italic opacity-60 hover:opacity-100 transition-opacity cursor-default">
                     {logo}
                   </div>
                 </div>
@@ -145,11 +145,11 @@ export default function Home() {
 
         {/* Final CTA */}
         <section className="py-32 px-6">
-          <div className="max-w-5xl mx-auto p-12 md:p-20 rounded-[3rem] bg-gradient-to-br from-emerald-500/20 via-blue-500/10 to-transparent border border-white/10 relative overflow-hidden">
+          <div className="max-w-5xl mx-auto p-12 md:p-20 rounded-[3rem] bg-gradient- to-br from-emerald-500/20 via-blue-500/10 to-transparent border border-white/10 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
             
             <div className="relative z-10 text-center">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">Ready to transform <br />your business?</h2>
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight font-[family-name:var(--font-inter)]">Ready to transform <br />your business?</h2>
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <button className="px-10 py-5 rounded-2xl bg-white text-black font-bold text-lg hover:scale-105 transition-transform shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]">
                   Get Started for Free
@@ -170,7 +170,7 @@ export default function Home() {
                 <Zap className="w-5 h-5 text-emerald-500" />
                 <span className="text-lg font-bold text-white tracking-tight">TrustFlow<span className="text-emerald-500">.</span></span>
               </div>
-              <p className="text-white/40 text-sm leading-relaxed">The standard for enterprise-grade social proof infrastructure.</p>
+              <p className="text-white/40 text-sm leading- relaxed font-[family-name:var(--font-source-sans)]">The standard for enterprise-grade social proof infrastructure.</p>
             </div>
             {[
               { title: 'Product', links: ['Features', 'Integrations', 'Security', 'Enterprise'] },
