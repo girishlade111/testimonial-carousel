@@ -258,14 +258,3 @@ const testimonials = [
   },
   // Add more testimonials...
 ]
-```
-
-### Adjusting Animation Speed
-
-Change the `animation` duration in the component:
-
-```typescript
-// Faster scroll (10 seconds)
-// animation: 'scroll 10s linear infinite'
-animation: 'scroll 20s linear infinite'
-```
