@@ -22,9 +22,9 @@ const sora = Sora({
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const sourceSans = Source_Sans_3({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-source-sans',
   display: 'swap',
 })
 
@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jakarta.variable} ${sora.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${inter.variable} ${jakarta.variable} ${sora.variable} ${sourceSans.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
