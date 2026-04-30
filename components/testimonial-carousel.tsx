@@ -61,9 +61,10 @@ export default function TestimonialCarousel() {
       {/* Scrolling container */}
       <div 
         ref={scrollRef}
-        className="flex gap-4 animate-scroll"
+        className="flex gap-4"
         style={{
-          width: 'fit-content'
+          width: 'fit-content',
+          animation: 'scroll 20s linear infinite',
         }}
       >
         {duplicatedTestimonials.map((testimonial, index) => (
