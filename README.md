@@ -26,7 +26,31 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 
 ## 🏗️ System Architecture
 
-```mermaid
+```mermaid  
+
+ graph TD
+    A[Next.js App] --> B[Testimonial Carousel Component]
+    B --> C[Auto-Scrolling Animation]
+    B --> D[Responsive Design]
+    B --> E[Gradient Overlays]
+    B --> F[Card Layout]
+```
+
+---
+
+## 📂 Project Structure
+
+```bash
+.
+├── app/
+│   ├── globals.css       # Global styles
+│   └── page.tsx         # Main page component
+├── components/
+│   └── testimonial-carousel.tsx  # Carousel component
+├── public/
+│   └── images/          # Image assets
+├── styles/
+│   └── animations.css   # Animation styles
   
 ├── postcss.config.mjs   # PostCSS configuration
 ├── next.config.mjs      # Next.js configuration
