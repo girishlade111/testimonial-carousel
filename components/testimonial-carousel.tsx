@@ -82,7 +82,11 @@ export default function TestimonialCarousel() {
   const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden rounded-3xl border border-emerald-500/30 bg-emerald-950/20">
+    <div className="relative w- full h-[500px] overflow- hidden rounded-3xl border border-emerald-500/30 bg-emerald-950/20">
+      {/* Debug placeholder - Remove after test */}
+      <div className="absolute inset-0 flex items-center justify-center text-emerald-400 text-2xl font-bold z-50">
+        Carousel Loading... ({duplicatedTestimonials.length} cards)
+      </div>
       {/* Ambient background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-black" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.08),_transparent_50%)]" />
