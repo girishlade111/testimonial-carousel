@@ -7,7 +7,7 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
     """
     # implementation using Kadane's Algorithm
     if not arr:
-
+        # Handle the case where the array is empty, though the problem states it must contain at least one element
         raise ValueError("Array must contain at least one element")
     max_ending_here = arr[0]
     max_so_far = arr[0]
