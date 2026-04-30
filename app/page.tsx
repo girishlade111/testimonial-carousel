@@ -1,13 +1,13 @@
 import TestimonialCarousel from "@/components/testimonial-carousel"
-import { Shield, Zap, Globe, Award, CheckCircle2, ArrowRight } from "lucide-react"
+import { Shield, Zap, Globe, Award, ArrowRight } from "lucide-react"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(16,185,129,0.05),_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.04),_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(139,92,246,0.03),_transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.04),_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_center,_rgba(139,92,246,0.03),_transparent_60%)]" />
       
       {/* Grid pattern */}
       <div 
@@ -28,13 +28,13 @@ export default function Home() {
             <span className="text-white/60 text-sm font-medium">Trusted by 500+ Companies Worldwide</span>
           </div>
           
-          {/* Title */}
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
+          {/* Title - Using display font */}
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
             What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500">Clients Say</span>
           </h1>
           
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto">
+          <p className="font-sans text-lg md:text-xl text-white/50 max-w-2xl mx-auto">
             Join thousands of satisfied customers who have transformed their business with our enterprise solutions.
           </p>
         </div>
@@ -52,8 +52,8 @@ export default function Home() {
               className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm"
             >
               <stat.icon className="w-5 h-5 text-emerald-400" />
-              <span className="text-2xl md:text-3xl font-bold text-white">{stat.value}</span>
-              <span className="text-xs text-white/40">{stat.label}</span>
+              <span className="font-display text-2xl md:text-3xl font-bold text-white">{stat.value}</span>
+              <span className="font-sans text-xs text-white/40">{stat.label}</span>
             </div>
           ))}
         </div>
@@ -65,11 +65,11 @@ export default function Home() {
 
         {/* CTA Section */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
-          <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-white/90 transition-colors">
+          <button className="font-sans flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-white/90 transition-colors">
             Get Started
             <ArrowRight className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-colors">
+          <button className="font-sans flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-colors">
             Schedule Demo
           </button>
         </div>
@@ -77,7 +77,7 @@ export default function Home() {
         {/* Trust badges */}
         <div className="flex flex-wrap items-center justify-center gap-6 mt-8 opacity-40">
           {["SOC 2", "ISO 27001", "GDPR Ready", "HIPAA Compliant"].map((badge) => (
-            <span key={badge} className="text-xs text-white/60 font-medium tracking-wider">{badge}</span>
+            <span key={badge} className="font-sans text-xs text-white/60 font-medium tracking-wider">{badge}</span>
           ))}
         </div>
       </div>
