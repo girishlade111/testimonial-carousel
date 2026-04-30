@@ -29,67 +29,6 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 ```mermaid
     
     TC --> Ref
-    TC --> Data
-    TC --> TCC
-    TC --> Keyframes
-    TC --> Gradients
-    TCC --> Container
-    Container --> Track
-    Track --> Cards
-    TCC --> Tailwind
-    TCC --> Utils
-    TCC --> Images
-    TCC --> Icons
-    TP --> ThemeProvider
-    ThemeProvider --> DarkMode
-    AppRouter --> TC
-    AppRouter --> TP
-    AppRouter --> Pages
-    Server --> AppRouter
-    Config --> Tailwind
-    TypeScript --> Bundle
-    Bundle --> ESLint
-end
-
-style Client fill:#e1f5fe,stroke:#01579b,color:#000
-style Components fill:#fff3e0,stroke:#e65100,color:#000
-style State fill:#e8f5e9,stroke:#1b5e20,color:#000
-style Animation fill:#f3e5f5,stroke:#4a148c,color:#000
-style DOM fill:#e0f2f1,stroke:#00695c,color:#000
-style NextJS fill:#eceff1,stroke:#37474f,color:#000
-style Styling fill:#fff8e1,stroke:#ff6f00,color:#000
-style Theme fill:#fce4ec,stroke:#880e4f,color:#000
-style Assets fill:#f1f8e9,stroke:#558b2f,color:#000
-style Build fill:#e3f2fd,stroke:#1565c0,color:#000
-```
-
----
-
-## 🛠️ Tech Stack
-
-### 🎯 Core Technologies
-
-| **Technology** | **Version** | **Purpose** |
-|----------------|--------------|-------------|
-| **Next.js** | 15.2.4 | React framework with App Router |
-| **React** | 19.2.5 | UI library |
-| **TypeScript** | 5.x | Type-safe development |
-| **Tailwind CSS** | 3.4.17 | Utility-first CSS framework |
-
-### 🧩 UI & Component Libraries
-
-| **Package** | **Version** | **Purpose** |
-|------------|-------------|-------------|
-| **Radix UI** | Latest | Accessible component primitives |
-| **Lucide React** | 0.454.0 | Icon library |
-| **Embla Carousel** | 8.5.1 | Touch-friendly carousel |
-| **Tailwind Animate** | 1.0.7 | Animation utilities |
-| **Next Themes** | 0.4.4 | Dark/light theme support |
-
-### 📦 Additional Dependencies
-
-| **Package** | **Version** | **Purpose** |
-|------------|-------------|-------------|
 | **Recharts** | 2.15.0 | Data visualization |
 | **Sonner** | 1.7.1 | Toast notifications |
 | **Vaul** | 0.9.6 | Drawer component |
