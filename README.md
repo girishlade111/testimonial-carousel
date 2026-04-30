@@ -30,6 +30,7 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 
  graph TD
     A[Next.js App] --> B[Testimonial Carousel Component]
+    A --> B
     B --> C[Auto-Scrolling Animation]
     B --> D[Responsive Design]
     B --> E[Gradient Overlays]
