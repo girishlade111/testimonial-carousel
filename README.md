@@ -26,6 +26,7 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
     max_current = max_global = arr[0]
     # Iterate through the array starting from the second element
     for i in range(1, len(arr)):
+        # Update max_current to be the maximum of the current element or the sum of max_current and the current element
         max_current = max(arr[i], max_current + arr[i])
         if max_current > max_global:
             max_global = max_current
