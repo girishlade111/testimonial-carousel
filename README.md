@@ -27,22 +27,6 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 ## 🏗️ System Architecture
 
 ```mermaid
-flowchart TB
-    subgra
-        ThemeProvider["next-themes<br/>Provider"]
-        DarkMode["Dark Mode<br/>Support"]
-    end
-    
-    subgraph Assets["🖼️ Assets Layer"]
-        Images["Images<br/>[logos/avatars]"]
-        Icons["Lucide Icons"]
-    end
-    
-    subgraph Build["⚙️ Build & Build"]
-        TypeScript["TypeScript"]
-        ESLint["ESLint"]
-        Bundle["Build Bundle"]
-    end
     
     TC --> Ref
     TC --> Data
