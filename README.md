@@ -10,10 +10,4 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
 
         # Handle the case where the array is empty, though the problem states it must contain at least one element
         raise ValueError("Array must contain at least one element")
-    # Initial array starting from the second element
-    for num in arr[1:]:
-        # Update the maximum sum ending at the current position
-        max_ending_here = max(num, max_ending_here + num)
-        # Update the maximum sum found so far
-        max_so_far = max(max_so_far, max_ending_here)
-    return max_so_far
+    
