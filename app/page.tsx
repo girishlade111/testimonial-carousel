@@ -1,6 +1,7 @@
 import TestimonialCarousel from "@/components/testimonial-carousel"
 import { Shield, Zap, Globe, Award, CheckCircle2, ArrowRight, Star, ExternalLink, Play } from "lucide-react"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 export default function Home() {
   return (
