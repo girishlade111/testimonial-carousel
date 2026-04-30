@@ -53,15 +53,6 @@ export default function TestimonialCarousel() {
     const element = scrollRef.current
     if (!element) return
 
-    function animate() {
-      const scrollWidth = element.scrollWidth
-      const clientWidth = element.clientWidth
-      
-      if (scrollWidth > clientWidth) {
-        element.style.transform = `translateX(-${scrollWidth / 3}px)`
-      }
-    }
-
     const animation = element.animate(
       [
         { transform: 'translateX(0)' },
