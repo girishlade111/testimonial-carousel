@@ -1,37 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter, Plus_Jakarta_Sans, Sora, Source_Sans_3 } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
-import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  display: 'swap',
-})
-
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-sora',
-  display: 'swap',
-})
-
-const sourceSans = Source_Sans_3({
-  subsets: ['latin'],
-  variable: '--font-source-sans',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: 'TrustFlow | Enterprise-Grade Social Proof',
-  description: 'A professional, enterprise-grade testimonial carousel component with stunning animations and modern UI',
-  keywords: ['testimonial', 'carousel', 'enterprise', 'Next.js', 'React', 'UI component'],
+  title: 'v0 App',
+  description: 'Created with v0',
+  generator: 'v0.app',
 }
 
 export default function RootLayout({
@@ -40,16 +16,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jakarta.variable} ${sora.variable} ${sourceSans.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="en">
+      <head>
+        <style>{`
+html {
+  font-family: ${GeistSans.style.fontFamily};
+  --font-sans: ${GeistSans.variable};
+  --font-mono: ${GeistMono.variable};
+}
+        `}</style>
+      </head>
+      <body>
+        {children}
         <Analytics />
       </body>
     </html>
