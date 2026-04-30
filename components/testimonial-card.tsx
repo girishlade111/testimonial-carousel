@@ -16,7 +16,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
     <div
       className={`
         relative overflow-hidden flex-shrink-0 
-        border border-white/10
+        border border-white/10 rounded-2xl
         bg-neutral-950 text-white
         shadow-[0_12px_40px_rgba(0,0,0,.45)]
         transition-all duration-300 ease-in-out
