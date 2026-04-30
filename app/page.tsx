@@ -1,6 +1,5 @@
 import TestimonialCarousel from "@/components/testimonial-carousel"
 import { Shield, Zap, Globe, Award, CheckCircle2, ArrowRight, Star, ExternalLink, Play } from "lucide-react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 export default function Home() {
@@ -48,20 +47,20 @@ export default function Home() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md mb-8">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] font-display">Enterprise Ready Solutions</span>
+              <span className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em]">Enterprise Ready Solutions</span>
             </div>
             
-            <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[1.05] font-display">
+            <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[1.05]">
               Social Proof That <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-500">Drives Growth</span>
             </h1>
             
-            <p className="text-lg md:text-2xl text-white/50 max-w-3xl mx-auto mb-12 leading-relaxed font-sans">
+            <p className="text-lg md:text-2xl text-white/50 max-w-3xl mx-auto mb-12 leading-relaxed">
               We empower industry leaders to build trust and accelerate conversions with our 
               state-of-the-art testimonial infrastructure.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 font-display">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <button className="group relative px-8 py-4 rounded-2xl bg-white text-black font-bold flex items-center gap-3 overflow-hidden transition-transform hover:scale-105">
                 <span className="relative z-10">Start Your Free Trial</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -76,7 +75,7 @@ export default function Home() {
 
         {/* Stats Section */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 font-display">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {[
               { icon: Shield, label: "Enterprise Verified", value: "950+", color: "emerald" },
               { icon: Globe, label: "Global Reach", value: "140+", color: "blue" },
@@ -103,11 +102,11 @@ export default function Home() {
         {/* Carousel Section */}
         <section className="py-20 px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="font-display">
+            <div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Voices of Innovation</h2>
-              <p className="text-white/40 text-lg max-w-xl font-sans">Hear from the pioneers who are redefining their industries using TrustFlow.</p>
+              <p className="text-white/40 text-lg max-w-xl">Hear from the pioneers who are redefining their industries using TrustFlow.</p>
             </div>
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10 font-display">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
                   <div key={i} className="w-10 h-10 rounded-full border-2 border-neutral-950 bg-neutral-800" />
@@ -131,7 +130,7 @@ export default function Home() {
         {/* Logo Cloud Section */}
         <section className="py-24 px-6">
           <div className="max-w-7xl mx-auto">
-            <p className="text-center text-white/30 text-xs font-bold uppercase tracking-[0.3em] mb-12">Empowering teams at the world's most innovative companies</p>
+            <p className="text-center text-white/30 text-xs font-bold uppercase tracking-[0.3em] mb-12">Empowering teams at the worlds most innovative companies</p>
             <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
               {['Microsoft', 'Google', 'Amazon', 'Vercel', 'Stripe', 'Salesforce'].map((logo) => (
                 <div key={logo} className="h-8 w-32 relative">
