@@ -28,66 +28,6 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 
 ```mermaid
   
-  - Top fade (black gradient, **60% → 20% → transparent**)
-  - Bottom fade (black gradient, **full → 60% → transparent**)
-  - **Left/Right edge gradients** for depth effect
-  
-- **Card Design**
-  - **Company logo** display with fixed dimensions (80x80px)
-  - **Customer avatar** (rounded, 56x56px)
-  - **Quote text** with subtitle support
-  - **Name, title, and company** information
-  - **Professional shadow** effects
-  
-- **Responsive Layout**
-  - **Fixed height** container (400px)
-  - **Flexible gap spacing** (16px)
-  - **Fit-content width** for smoother scrolling
-  - **Mobile-first approach**
-
-### 💻 Developer Features
-
-- **TypeScript Support** - **Full type safety** with interfaces
-- **Component-based Architecture** - **Reusable, modular** components
-- **Theme Provider** - **Dark/light mode** support via next-themes
-- **Next.js App Router** - **Modern routing** architecture
-- **Utility Functions** - **cn()** class merger from lib/utils.ts
-- **Clean Code** - **Well-structured**, maintainable code
-- **Accessibility Ready** - **ARIA labels** support
-
-### 🎨 Visual Features
-
-- **Smooth Animations** - **60fps GPU-accelerated** animations
-- **Gradient Effects** - **Professional edge fade** effects
-- **Card Shadows** - **Subtle box-shadow** for depth
-- **Hover States** - **Interactive hover** effects
-- **Responsive Images** - **Optimized image** loading
-
----
-
-## ⚙️ Configuration
-
-### 📁 Project Structure
-
-```
-testimonial-carousel/
-├── app/
-│   ├── layout.tsx          # Root layout with providers
-│   ├── page.tsx            # Main page component
-│   └── globals.css        # Global styles
-├── components/
-│   ├── testimonial-carousel.tsx   # Main carousel component
-│   ├── testimonial-card.tsx        # Individual card component
-│   └── theme-provider.tsx         # Theme provider wrapper
-├── lib/
-│   └── utils.ts           # Utility functions (cn)
-├── public/
-│   └── [assets]          # Images and static files
-│   ├── *.png             # Logo images
-│   └── *.jpg             # Avatar images
-├── styles/
-│   └── globals.css       # Global CSS styles
-├── tailwind.config.ts   # Tailwind configuration
 ├── postcss.config.mjs   # PostCSS configuration
 ├── next.config.mjs      # Next.js configuration
 ├── package.json         # Dependencies
