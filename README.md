@@ -31,28 +31,6 @@ flowchart TB
     subgraph Client["🖥️ Client Side (Browser)"]
         direction TB
         
-        subgraph Components["⚛️ React Components"]
-            TC["TestimonialCarousel"]
-            TCC["TestimonialCard"]
-            TP["ThemeProvider"]
-        end
-        
-        subgraph State["📊 State Management"]
-            Ref["useRef Hook<br/>[scrollRef]"]
-            Data["Testimonials Data<br/>[Array]"]
-        end
-        
-        subgraph Animation["🎨 CSS Animations"]
-            Keyframes["@keyframes scroll"]
-            Gradients["Gradient Overlays"]
-            Transforms["Transform &<br/>Transition"]
-        end
-        
-        subgraph DOM["🌳 DOM Structure"]
-            Container["Container<br/>[overflow:hidden]"]
-            Track["Track<br/>[flex-row]"]
-            Cards["Cards<br/>[flex:0,0:auto]"]
-        end
     end
     
     subgraph NextJS["🚀 Next.js Framework"]
