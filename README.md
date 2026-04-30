@@ -13,3 +13,8 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
 
         raise ValueError("Array must contain at least one element")
     return max_global = max_current = arr[0]
+    for num in arr[1:]:
+        max_current = max(num, max_current + num)
+        if max_current > max_global:
+            max_global = max_current
+    return max_global
