@@ -40,7 +40,7 @@ const testimonials = [
     subtitle: "Enterprise-grade stability",
     name: "Sarah Johnson",
     title: "CTO",
-    company: "Vercel",
+    company: "Acme Corp",
     avatar: "/professional-woman-short-hair.png",
     logo: "/enterprise-software-logo.png",
   },

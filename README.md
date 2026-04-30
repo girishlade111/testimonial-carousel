@@ -18,9 +18,7 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 
 ---
 
-## 🌐 Live Demo
-
-> **🌍 Live Project:** [https://vercel.com/gileb64375-5584s-projects/v0-testimonial-carousel](https://vercel.com/gileb64375-5584-s-projects/v0-testimonial-carousel)
+## Live Demo
 
 ---
 
@@ -512,8 +510,7 @@ MIT License - See LICENSE file for details.
 
 ## 👏 Credits
 
-- Built with [v0.app](https://v0.app)
-- Deployed on [Vercel](https://vercel.com)
+- Testimonial Carousel
 - Design inspired by modern UI patterns
 
 ---
