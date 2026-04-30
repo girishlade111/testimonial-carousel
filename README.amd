@@ -291,13 +291,3 @@ className="relative w-full h-[300px] overflow-hidden"
 - **Safari** (latest)
 - **Edge** (latest)
 
----
-
-## Performance Stats
-
-| Metric | Value |
-|--------|-------|
-| **Initial Bundle Size** | ~150 KB (gzipped) |
-| **Carousel Animation** | GPU-accelerated (CSS) |
-| **Re-renders** | Minimal (ref-based) |
-| **Accessibility** | WCAG compliant |
