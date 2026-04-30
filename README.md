@@ -301,11 +301,3 @@ className="relative w-full h-[300px] overflow-hidden"
 | **Carousel Animation** | GPU-accelerated (CSS) |
 | **Re-renders** | Minimal (ref-based) |
 | **Accessibility** | WCAG compliant |
-
----
-
-## Credits
-
-- Built with [v0.app](https://v0.app)
-- Deployed on [Vercel](https://vercel.com)
-- Design inspired by modern UI patterns
