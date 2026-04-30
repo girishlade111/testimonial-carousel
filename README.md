@@ -304,12 +304,6 @@ className="relative w-full h-[300px] overflow-hidden"
 
 ---
 
-## License
-
-MIT License - See LICENSE file for details.
-
----
-
 ## Credits
 
 - Built with [v0.app](https://v0.app)
