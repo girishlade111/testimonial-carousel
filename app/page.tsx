@@ -6,6 +6,12 @@ export default function Home() {
       <div className="w-full max-w-7xl">
         <TestimonialCarousel />
       </div>
+      <style jsx global>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-380px * 4 - 16px * 4)); }
+        }
+      `}</style>
     </main>
   )
 }
