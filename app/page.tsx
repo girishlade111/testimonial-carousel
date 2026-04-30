@@ -50,7 +50,7 @@ export default function Home() {
               <span className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em]">Enterprise Ready Solutions</span>
             </div>
             
-            <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[1.05]">
+            <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-[-0.02em] leading-[1.05] font-[family-name:var(--font-inter)]">
               Social Proof That <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-500">Drives Growth</span>
             </h1>
