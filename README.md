@@ -12,4 +12,4 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
         # Handle the case where the array is empty, though the problem states it must contain at least one element
 
         raise ValueError("Array must contain at least one element")
-    return max_global
+    return max_global = max_current = arr[0]
