@@ -55,7 +55,7 @@ export default function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-500">Drives Growth</span>
             </h1>
             
-            <p className="text-lg md:text-2xl text-white/50 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto mb-12 leading-relaxed font-[family-name:var(--font-source-sans)]">
               We empower industry leaders to build trust and accelerate conversions with our 
               state-of-the-art testimonial infrastructure.
             </p>
