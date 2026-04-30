@@ -31,4 +31,5 @@ def find_maximum_subarray_sum(arr: List[int]) -> int:
         # Update max_global if max_current is greater than max_global
         if max_current > max_global:
             max_global = max_current
+    # Return the maximum sum found
     return max_global
