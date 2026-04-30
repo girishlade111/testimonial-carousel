@@ -27,37 +27,7 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
 ## 🏗️ System Architecture
 
 ```mermaid
-    
-    TC --> Ref
-| **Recharts** | 2.15.0 | Data visualization |
-| **Sonner** | 1.7.1 | Toast notifications |
-| **Vaul** | 0.9.6 | Drawer component |
-| **Class Variance Authority** | 0.7.1 | Class merging utility |
-| **Tailwind Merge** | 2.5.5 | Tailwind class merger |
-| **cmdk** | ^1.0.0 | Command menu component |
-
-### 🛠️ Development Tools
-
-| **Tool** | **Purpose** |
-|---------|-------------|
-| **ESLint** | Code linting |
-| **TypeScript** | Type checking |
-| **PostCSS** | CSS processing |
-| **Autoprefixer** | Browser prefixing |
-
----
-
-## ✨ Features
-
-### 🎠 Carousel Features
-
-- **Auto-Scroll Animation**
-  - Smooth **20-second infinite loop**
-  - **Linear timing function** for constant speed
-  - **CSS keyframe-based** animation
-  - **GPU-accelerated transforms**
   
-- **Gradient Overlays**
   - Top fade (black gradient, **60% → 20% → transparent**)
   - Bottom fade (black gradient, **full → 60% → transparent**)
   - **Left/Right edge gradients** for depth effect
