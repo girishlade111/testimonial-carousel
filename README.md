@@ -1,30 +1,30 @@
 # Testimonial Carousel
 
-*A modern, responsive testimonial carousel component built with Next.js and Tailwind CSS*
+*A Modern, Responsive Testimonial Carousel Component Built with Next.js and Tailwind CSS*
 
 ---
 
-## Overview
+## 📋 Overview
 
-Testimonial Carousel is a visually stunning, auto-scrolling carousel component designed to showcase customer testimonials in an engaging infinite-loop animation. The component features smooth CSS animations, gradient overlays, and a professional card-based design perfect for business websites.
+Testimonial Carousel is a **visually stunning**, auto-scrolling carousel component designed to showcase customer testimonials in an engaging infinite-loop animation. The component features **smooth CSS animations**, gradient overlays, and a **professional card-based design** perfect for business websites.
 
-### Key Highlights
+### 🔑 Key Highlights
 
-- **Infinite Scrolling** - Seamless continuous animation loop
-- **Auto-Playing** - Automatically scrolls without user interaction
-- **Responsive Design** - Adapts to different screen sizes
-- **Gradient Overlays** - Beautiful fade effects on edges
-- **Card-based UI** - Clean, professional testimonial cards
-
----
-
-## Live Demo
-
-> **Live Project:** [https://vercel.com/gileb64375-5584s-projects/v0-testimonial-carousel](https://vercel.com/gileb64375-5584-s-projects/v0-testimonial-carousel)
+- **✨ Infinite Scrolling** - Seamless continuous animation loop
+- **▶️ Auto-Playing** - Automatically scrolls without user interaction
+- **📱 Responsive Design** - Adapts to different screen sizes
+- **🌈 Gradient Overlays** - Beautiful fade effects on edges
+- **🃏 Card-based UI** - Clean, professional testimonial cards
 
 ---
 
-## System Architecture
+## 🌐 Live Demo
+
+> **🌍 Live Project:** [https://vercel.com/gileb64375-5584s-projects/v0-testimonial-carousel](https://vercel.com/gileb64375-5584-s-projects/v0-testimonial-carousel)
+
+---
+
+## 🏗️ System Architecture
 
 ```mermaid
 flowchart TB
@@ -120,12 +120,12 @@ style Build fill:#e3f2fd,stroke:#1565c0,color:#000
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### 🎯 Core Technologies
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
+| **Technology** | **Version** | **Purpose** |
+|----------------|--------------|-------------|
 | **Next.js** | 15.2.4 | React framework with App Router |
 | **React** | 19.2.5 | UI library |
 | **TypeScript** | 5.x | Type-safe development |
@@ -133,8 +133,8 @@ style Build fill:#e3f2fd,stroke:#1565c0,color:#000
 
 ### 🧩 UI & Component Libraries
 
-| Package | Version | Purpose |
-|--------|---------|---------|
+| **Package** | **Version** | **Purpose** |
+|------------|-------------|-------------|
 | **Radix UI** | Latest | Accessible component primitives |
 | **Lucide React** | 0.454.0 | Icon library |
 | **Embla Carousel** | 8.5.1 | Touch-friendly carousel |
@@ -143,8 +143,8 @@ style Build fill:#e3f2fd,stroke:#1565c0,color:#000
 
 ### 📦 Additional Dependencies
 
-| Package | Version | Purpose |
-|--------|---------|---------|
+| **Package** | **Version** | **Purpose** |
+|------------|-------------|-------------|
 | **Recharts** | 2.15.0 | Data visualization |
 | **Sonner** | 1.7.1 | Toast notifications |
 | **Vaul** | 0.9.6 | Drawer component |
@@ -154,64 +154,64 @@ style Build fill:#e3f2fd,stroke:#1565c0,color:#000
 
 ### 🛠️ Development Tools
 
-| Tool | Purpose |
-|------|---------|
+| **Tool** | **Purpose** |
+|---------|-------------|
 | **ESLint** | Code linting |
 | **TypeScript** | Type checking |
 | **PostCSS** | CSS processing |
-| ** Autoprefixer** | Browser prefixing |
+| **Autoprefixer** | Browser prefixing |
 
 ---
 
-## Features
+## ✨ Features
 
-### ✨ Carousel Features
+### 🎠 Carousel Features
 
 - **Auto-Scroll Animation**
-  - Smooth 20-second infinite loop
-  - Linear timing function for constant speed
-  - CSS keyframe-based animation
-  - GPU-accelerated transforms
+  - Smooth **20-second infinite loop**
+  - **Linear timing function** for constant speed
+  - **CSS keyframe-based** animation
+  - **GPU-accelerated transforms**
   
 - **Gradient Overlays**
-  - Top fade (black gradient, 60% → 20% → transparent)
-  - Bottom fade (black gradient, full → 60% → transparent)
-  - Left/Right edge gradients for depth effect
+  - Top fade (black gradient, **60% → 20% → transparent**)
+  - Bottom fade (black gradient, **full → 60% → transparent**)
+  - **Left/Right edge gradients** for depth effect
   
 - **Card Design**
-  - Company logo display with fixed dimensions (80x80px)
-  - Customer avatar (rounded, 56x56px)
-  - Quote text with subtitle support
-  - Name, title, and company information
-  - Professional shadow effects
+  - **Company logo** display with fixed dimensions (80x80px)
+  - **Customer avatar** (rounded, 56x56px)
+  - **Quote text** with subtitle support
+  - **Name, title, and company** information
+  - **Professional shadow** effects
   
 - **Responsive Layout**
-  - Fixed height container (400px)
-  - Flexible gap spacing (16px)
-  - Fit-content width for smoother scrolling
-  - Mobile-first approach
+  - **Fixed height** container (400px)
+  - **Flexible gap spacing** (16px)
+  - **Fit-content width** for smoother scrolling
+  - **Mobile-first approach**
 
 ### 💻 Developer Features
 
-- **TypeScript Support** - Full type safety with interfaces
-- **Component-based Architecture** - Reusable, modular components
-- **Theme Provider** - Dark/light mode support via next-themes
-- **Next.js App Router** - Modern routing architecture
-- **Utility Functions** - cn() class merger from lib/utils.ts
-- **Clean Code** - Well-structured, maintainable code
-- **Accessibility Ready** - ARIA labels support
+- **TypeScript Support** - **Full type safety** with interfaces
+- **Component-based Architecture** - **Reusable, modular** components
+- **Theme Provider** - **Dark/light mode** support via next-themes
+- **Next.js App Router** - **Modern routing** architecture
+- **Utility Functions** - **cn()** class merger from lib/utils.ts
+- **Clean Code** - **Well-structured**, maintainable code
+- **Accessibility Ready** - **ARIA labels** support
 
 ### 🎨 Visual Features
 
-- **Smooth Animations** - 60fps GPU-accelerated animations
-- **Gradient Effects** - Professional edge fade effects
-- **Card Shadows** - Subtle box-shadow for depth
-- **Hover States** - Interactive hover effects
-- **Responsive Images** - Optimized image loading
+- **Smooth Animations** - **60fps GPU-accelerated** animations
+- **Gradient Effects** - **Professional edge fade** effects
+- **Card Shadows** - **Subtle box-shadow** for depth
+- **Hover States** - **Interactive hover** effects
+- **Responsive Images** - **Optimized image** loading
 
 ---
 
-## Configuration
+## ⚙️ Configuration
 
 ### 📁 Project Structure
 
@@ -278,8 +278,8 @@ testimonial-carousel/
 }
 ```
 
-| Property | Value |
-|----------|-------|
+| **Property** | **Value** |
+|-------------|-----------|
 | **Duration** | 20 seconds |
 | **Timing** | linear (constant speed) |
 | **Direction** | right to left |
@@ -288,17 +288,17 @@ testimonial-carousel/
 
 ### 📐 Carousel Dimensions
 
-| Element | Dimension |
-|---------|------------|
-| Container Height | 400px |
-| Card Width | 380px |
-| Gap Between Cards | 16px |
-| Logo Size | 80x80px |
-| Avatar Size | 56x56px |
+| **Element** | **Dimension** |
+|-------------|---------------|
+| **Container Height** | 400px |
+| **Card Width** | 380px |
+| **Gap Between Cards** | 16px |
+| **Logo Size** | 80x80px |
+| **Avatar Size** | 56x56px |
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### ✅ Prerequisites
 
@@ -327,8 +327,8 @@ npm run dev
 
 ### 🚀 Development Commands
 
-| Command | Description |
-|---------|-------------|
+| **Command** | **Description** |
+|------------|-----------------|
 | `npm run dev` | Start development server on port 3000 |
 | `npm run build` | Build for production |
 | `npm run start` | Start production server |
@@ -348,7 +348,7 @@ NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
 
 ---
 
-## Customization
+## 🎨 Customization
 
 ### 🎯 Modifying Testimonials
 
@@ -412,23 +412,23 @@ import { ThemeProvider } from '@/components/theme-provider'
 
 ---
 
-## Browser Support
+## 🌐 Browser Support
 
-| Browser | Version | Status |
-|---------|----------|--------|
+| **Browser** | **Version** | **Status** |
+|-------------|-------------|------------|
 | 🟢 Chrome | latest | ✅ Supported |
 | 🟠 Firefox | latest | ✅ Supported |
 | 🔵 Safari | latest | ✅ Supported |
-| 🟣 Edge | latest | �� Supported |
+| 🟣 Edge | latest | ✅ Supported |
 
 ---
 
-## Performance Stats
+## 📊 Performance Stats
 
-### 📊 Bundle Analysis
+### 📦 Bundle Analysis
 
-| Metric | Value | Notes |
-|--------|-------|-------|
+| **Metric** | **Value** | **Notes** |
+|------------|-----------|----------|
 | **Initial Bundle Size** | ~150 KB | gzipped |
 | **Carousel Animation** | GPU-accelerated | Uses transform |
 | **Re-renders** | Minimal | ref-based state |
@@ -444,8 +444,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 
 ### ♻️ Runtime Performance
 
-| Metric | Target | Achieved |
-|--------|--------|----------|
+| **Metric** | **Target** | **Achieved** |
+|------------|-----------|--------------|
 | **Frame Rate** | 60fps | ✅ |
 | **Memory Usage** | < 50MB | ✅ |
 | **CPU Usage** | < 5% | ✅ |
@@ -453,7 +453,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 
 ---
 
-## API Reference
+## 📖 API Reference
 
 ### TestimonialCard Props
 
@@ -484,7 +484,7 @@ interface ThemeProviderProps {
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 ### 🏭 Contributing Guidelines
 
@@ -496,21 +496,21 @@ interface ThemeProviderProps {
 
 ### ✅ Code Standards
 
-- Use TypeScript for all new code
-- Follow ESLint rules
-- Keep components small and focused
-- Write meaningful commit messages
-- Test your changes locally before submitting
+- **Use TypeScript** for all new code
+- **Follow ESLint** rules
+- **Keep components** small and focused
+- **Write meaningful** commit messages
+- **Test your changes** locally before submitting
 
 ---
 
-## License
+## 📄 License
 
 MIT License - See LICENSE file for details.
 
 ---
 
-## Credits
+## 👏 Credits
 
 - Built with [v0.app](https://v0.app)
 - Deployed on [Vercel](https://vercel.com)
@@ -521,6 +521,7 @@ MIT License - See LICENSE file for details.
 ## 🙏 Acknowledgments
 
 Thanks to the open-source community for the amazing libraries that make this project possible:
+
 - Next.js team
 - Tailwind Labs
 - Radix UI
