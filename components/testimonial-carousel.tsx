@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, CSSProperties } from "react"
 import TestimonialCard from "./testimonial-card"
 
 const testimonials = [
@@ -48,6 +48,25 @@ const testimonials = [
 
 export default function TestimonialCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollKeyframes: Keyframe[] = [
+    { transform: 'translateX(0)' },
+    { transform: 'translateX(calc(-380px * 4 - 16px * 4))' }
+  ]
+
+  const scrollStyle: CSSProperties = {
+    width: 'fit-content',
+    animation: 'scroll 20s linear infinite',
+  }
+
+  return (
+    <div className="relative w-full h-[400px] overflow-hidden">
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-380px * 4 - 16px * 4)); }
+        }
+      `}</style>
 
   // Create a continuous array by duplicating testimonials
   const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
