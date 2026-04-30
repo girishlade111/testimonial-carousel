@@ -33,8 +33,8 @@ Testimonial Carousel is a **visually stunning**, auto-scrolling carousel compone
     A --> B
     B --> C[Auto-Scrolling Animation]
     B --> D[Responsive Design]
-    B --> E[Gradient Overlays]
-    B --> F[Card Layout]
+    A --> E[Gradient Overlays]
+    A --> F[Card Layout]
 ```
 
 ---
