@@ -523,3 +523,7 @@ Thanks to the open-source community for the amazing libraries that make this pro
 - Tailwind Labs
 - Radix UI
 - Lucide Icons
+
+---
+
+Built by Girish Lade — https://ladestack.in
